@@ -68,10 +68,12 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if(TextUtils.isEmpty(str_username) || TextUtils.isEmpty(str_password) || TextUtils.isEmpty(str_mailaddress) || TextUtils.isEmpty(str_phonenumber)){
                     Toast.makeText(getApplicationContext(),"All Fields are Required",Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
 
                 }
                 else if(str_password.length()<6){
-                    Toast.makeText(getApplicationContext(),"Password must have atleast 6 characters",Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(),"Password must have atleast 6 characters",Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
                 }
                 else{
                     register(str_username,str_mailaddress,str_password,str_phonenumber);
@@ -95,8 +97,8 @@ public class RegisterActivity extends AppCompatActivity {
                     HashMap<String, Object> hashmap = new HashMap<>();
                     hashmap.put("id",userid);
                     hashmap.put("username",username.toLowerCase());
-                    hashmap.put("Bio", "");
-                    hashmap.put("imageurl", "");
+                    hashmap.put("Bio", ""); //TODO
+                    hashmap.put("imageurl", "");    //TODO
 
                     reference.setValue(hashmap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

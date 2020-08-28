@@ -55,11 +55,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 pd = new ProgressDialog(LoginActivity.this);
-                pd.setMessage("please wait......");
+                pd.setMessage("Please Wait......");
                 pd.show();
 
                 if(TextUtils.isEmpty(username.getText().toString()) || TextUtils.isEmpty(password.getText().toString()) ){
                     Toast.makeText(getApplicationContext(),"All Fields are required",Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
                 }else {
                     auth.signInWithEmailAndPassword(username.getText().toString(),password.getText().toString()).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
