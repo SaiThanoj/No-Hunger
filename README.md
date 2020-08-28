@@ -1,2 +1,0 @@
-# No-Hunger
-SE project 
