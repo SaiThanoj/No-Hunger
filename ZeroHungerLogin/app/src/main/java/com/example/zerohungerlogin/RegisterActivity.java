@@ -96,7 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     HashMap<String, Object> hashmap = new HashMap<>();
                     hashmap.put("id",userid);
-                    hashmap.put("username",username.toLowerCase());
+                    hashmap.put("username", username);
                     hashmap.put("Bio", ""); //TODO
                     hashmap.put("imageurl", "");    //TODO
 
