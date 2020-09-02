@@ -3,6 +3,7 @@ package com.example.zerohungerlogin;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         register = findViewById(R.id.button2);
         signInButton = findViewById(R.id.signInButton);
         fauth = FirebaseAuth.getInstance();
+
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,6 +2,7 @@ package com.example.zerohungerlogin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -36,6 +37,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
 
         username = findViewById(R.id.editTextTextPersonNameLog);
         password = findViewById(R.id.editTextTextPasswordLog);

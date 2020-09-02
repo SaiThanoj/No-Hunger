@@ -2,6 +2,7 @@ package com.example.zerohungerlogin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -44,6 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
         password = findViewById(R.id.editTextTextPassword);
         registerbtn = findViewById(R.id.button3);
         logintxt = findViewById(R.id.regTextView);
+
 
         fauth = FirebaseAuth.getInstance();
 
