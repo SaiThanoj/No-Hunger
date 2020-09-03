@@ -1,1 +1,0 @@
-Replace homepage activity(.java file) with StartActivity.java
