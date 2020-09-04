@@ -119,8 +119,22 @@ public class MainActivity extends AppCompatActivity {
         EditText donatepay = (EditText)findViewById(R.id.donatepay);
 
         Toast.makeText(this,"hi"+ donatename.getText().toString() + "you are on the way to donate rupees :" + donatepay.getText().toString() ,Toast.LENGTH_LONG.show());
+        private PaymentsClient paymentsClient;
+        
+        @override
+        public void onCreate(Bundle savedInstanceState){
+            super.onCreate(savedInstanceState);
+            Wallet.WalletOptions walletoptions =
+                new Wallet.WalletOptions.Builder()
+                .setEnvironment(WalletConstants.ENVIRONMENT_TEST)
+                .build();
+            paymentClient = Wallet.getPaymentsClient(
+                this. walletOptions);
+        }
+        
+        
 
-        int GOOGLE_PAY_REQUEST_CODE = 123;
+        /*int GOOGLE_PAY_REQUEST_CODE = 123;
 
         Uri uri =
                 new Uri.Builder()
@@ -138,7 +152,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(uri);
         intent.setPackage(GOOGLE_PAY_PACKAGE_NAME);
-        activity.startActivityForResult(intent, GOOGLE_PAY_REQUEST_CODE);
+        activity.startActivityForResult(intent, GOOGLE_PAY_REQUEST_CODE);*/
+        
     }
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask){
