@@ -126,6 +126,23 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this,"hi"+ donatename.getText().toString() + "you are on the way to donate rupees :" + donatepay.getText().toString() ,Toast.LENGTH_LONG.show());
         private PaymentsClient paymentsClient;
         
+        IsReadyTOPayRequest readyToPayrequest = IsReadyToPayRequest.fromJson(baseConfigurationJson().toString());
+        
+        Task<Boolean> task = paymentsClient.isReadyToPay(readyToPayRequest);
+        
+        task.addOnCompleteListener(this, new onCompleteListener<Boolean>(){
+            
+            public void onComplete(@NonNull Task<Boolean> completeTask){
+                
+                if(completeTask.isSuccessful()){
+                    showGooglePayButton(CompleteTask.getResult());
+                    
+                }else{
+                    
+                }
+            }
+        });
+     
         @override
         public void onCreate(Bundle savedInstanceState){
             super.onCreate(savedInstanceState);
