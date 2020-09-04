@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -97,49 +96,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-  private static final int TEZ_REQUEST_CODE = 123;
-  private static final String GOOGLE_TEZ_PACKAGE_NAME = "com.google.android.apps.nbu.paisa.user";
-
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-
-    Button payButton = findViewById(R.id.pay_button);
-    payButton.setOnClickListener(new OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Uri uri =
-            new Uri.Builder()
-                .scheme("upi")
-                .authority("pay")
-                .appendQueryParameter("pa", "test@axisbank")
-                .appendQueryParameter("pn", "Test Merchant")
-                .appendQueryParameter("mc", "1234")
-                .appendQueryParameter("tr", "123456789")
-                .appendQueryParameter("tn", "test transaction note")
-                .appendQueryParameter("am", "10.01")
-                .appendQueryParameter("cu", "INR")
-                .appendQueryParameter("url", "https://test.merchant.website")
-                .build();
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(uri);
-        intent.setPackage(GOOGLE_TEZ_PACKAGE_NAME);
-        startActivityForResult(intent, TEZ_REQUEST_CODE);
-      }
-    });
-  }
-
-  @Override
-  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    super.onActivityResult(requestCode, resultCode, data);
-
-    if (requestCode == TEZ_REQUEST_CODE) {
-      // Process based on the data in response.
-      Log.d("result", data.getStringExtra("Status"));
-    }
-  }
-}
     private void signIn(){
         Intent signInIntent = mGoogleSignInclient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -154,50 +110,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-    private static JSONObject baseConfigurationJson(){
-    return new JSONObject()
-        .put("apiVersion",2)
-        .put("apiVersionMinor",0)
-        .put("allowedPaymentMethods", new JSONArray().put(getCardPaymentMethod()));
-    }    
-    public void donate(View view){
-        
-        EditText donatename = (EditText)findViewById(R.id.donatename);
-        EditText donatephone = (EditText)findViewById(R.id.donatephone);
-        EditText donatepay = (EditText)findViewById(R.id.donatepay);
-
-        Toast.makeText(this,"hi"+ donatename.getText().toString() + "you are on the way to donate rupees :" + donatepay.getText().toString() ,Toast.LENGTH_LONG.show());
-        private PaymentsClient paymentsClient;
-        
-        IsReadyTOPayRequest readyToPayrequest = IsReadyToPayRequest.fromJson(baseConfigurationJson().toString());
-        
-        Task<Boolean> task = paymentsClient.isReadyToPay(readyToPayRequest);
-        
-        task.addOnCompleteListener(this, new onCompleteListener<Boolean>(){
-            
-            public void onComplete(@NonNull Task<Boolean> completeTask){
-                
-                if(completeTask.isSuccessful()){
-                    showGooglePayButton(CompleteTask.getResult());
-                    
-                }else{
-                    
-                }
-            }
-        });
-     
-        @override
-        public void onCreate(Bundle savedInstanceState){
-            super.onCreate(savedInstanceState);
-            Wallet.WalletOptions walletoptions =
-                new Wallet.WalletOptions.Builder()
-                .setEnvironment(WalletConstants.ENVIRONMENT_TEST)
-                .build();
-            paymentClient = Wallet.getPaymentsClient(
-                this. walletOptions);
-        }
-    }
-    
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask){
         try {
             GoogleSignInAccount acc = completedTask.getResult(ApiException.class);
