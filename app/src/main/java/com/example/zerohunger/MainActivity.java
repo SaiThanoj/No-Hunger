@@ -78,6 +78,13 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         Log.d("result", data.getStringExtra("Status"));
       }
     }
+    
+    private static JSONObject baseConfigurationJson(){
+    return new JSONObject()
+        .put("apiVersion",2)
+        .put("apiVersionMinor",0)
+        .put("allowedPaymentMethods", new JSONArray().put(getCardPaymentMethod()));
+    }    
 
     private void initView() {
 
