@@ -113,6 +113,12 @@ public class MainActivity extends AppCompatActivity {
     }
     
     public void donate(View view){
+        
+        EditText donatename = (EditText)findViewById(R.id.donatename);
+        EditText donatephone = (EditText)findViewById(R.id.donatephone);
+        EditText donatepay = (EditText)findViewById(R.id.donatepay);
+
+        Toast.makeText(this,"hi"+ donatename.getText().toString() + "you are on the way to donate rupees :" + donatepay.getText().toString() ,Toast.LENGTH_LONG.show());
 
         int GOOGLE_PAY_REQUEST_CODE = 123;
 
