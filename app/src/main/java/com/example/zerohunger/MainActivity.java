@@ -85,6 +85,44 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         .put("apiVersionMinor",0)
         .put("allowedPaymentMethods", new JSONArray().put(getCardPaymentMethod()));
     }    
+    
+    public void donate(View view){
+        
+        EditText donatename = (EditText)findViewById(R.id.donatename);
+        EditText donatephone = (EditText)findViewById(R.id.donatephone);
+        EditText donatepay = (EditText)findViewById(R.id.donatepay);
+
+        Toast.makeText(this,"hi"+ donatename.getText().toString() + "you are on the way to donate rupees :" + donatepay.getText().toString() ,Toast.LENGTH_LONG.show());
+        private PaymentsClient paymentsClient;
+        
+        IsReadyTOPayRequest readyToPayrequest = IsReadyToPayRequest.fromJson(baseConfigurationJson().toString());
+        
+        Task<Boolean> task = paymentsClient.isReadyToPay(readyToPayRequest);
+        
+        task.addOnCompleteListener(this, new onCompleteListener<Boolean>(){
+            
+            public void onComplete(@NonNull Task<Boolean> completeTask){
+                
+                if(completeTask.isSuccessful()){
+                    showGooglePayButton(CompleteTask.getResult());
+                    
+                }else{
+                    
+                }
+            }
+        });
+     
+        @override
+        public void onCreate(Bundle savedInstanceState){
+            super.onCreate(savedInstanceState);
+            Wallet.WalletOptions walletoptions =
+                new Wallet.WalletOptions.Builder()
+                .setEnvironment(WalletConstants.ENVIRONMENT_TEST)
+                .build();
+            paymentClient = Wallet.getPaymentsClient(
+                this. walletOptions);
+        }
+    }
 
     private void initView() {
 
