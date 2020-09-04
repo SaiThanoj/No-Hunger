@@ -111,6 +111,29 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    
+    public void donate(View view){
+
+        int GOOGLE_PAY_REQUEST_CODE = 123;
+
+        Uri uri =
+                new Uri.Builder()
+                        .scheme("upi")
+                        .authority("pay")
+                        .appendQueryParameter("pa", "your-merchant-vpa@xxx")
+                        .appendQueryParameter("pn", "your-merchant-name")
+                        .appendQueryParameter("mc", "your-merchant-code")
+                        .appendQueryParameter("tr", "your-transaction-ref-id")
+                        .appendQueryParameter("tn", "your-transaction-note")
+                        .appendQueryParameter("am", "your-order-amount")
+                        .appendQueryParameter("cu", "INR")
+                        .appendQueryParameter("url", "your-transaction-url")
+                        .build();
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(uri);
+        intent.setPackage(GOOGLE_PAY_PACKAGE_NAME);
+        activity.startActivityForResult(intent, GOOGLE_PAY_REQUEST_CODE);
+    }
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask){
         try {
