@@ -52,19 +52,34 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         switch (menuItem.getItemId())
         {
             case R.id.donatefood:
-                Toast.makeText(getApplicationContext(),"Item 1 selected",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Item 1 selected",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(),DonateFoodActivity.class);
                 //intent.putExtra("noteId",i);
                 startActivity(intent);
+                break;
 
             case R.id.fooddonors:
-                Toast.makeText(getApplicationContext(),"Item 2 selected",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Item 2 selected",Toast.LENGTH_SHORT).show();
+                Intent intent1 = new Intent(getApplicationContext(),food_donors.class);
+                //intent.putExtra("noteId",i);
+                startActivity(intent1);
+                break;
 
             case R.id.moneydonors:
-                Toast.makeText(getApplicationContext(),"Item 3 selected",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Item 3 selected",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Item 2 selected",Toast.LENGTH_SHORT).show();
+                Intent intent2 = new Intent(getApplicationContext(),money_donors.class);
+                //intent.putExtra("noteId",i);
+                startActivity(intent2);
+                break;
+
 
             case R.id.moneyspent:
-                Toast.makeText(getApplicationContext(),"Item 4 selected",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Item 4 selected",Toast.LENGTH_SHORT).show();
+                Intent intent3 = new Intent(getApplicationContext(),money_spent.class);
+                //intent.putExtra("noteId",i);
+                startActivity(intent3);
+                break;
 
             case R.id.settings:
                 Toast.makeText(getApplicationContext(),"Item 5 selected",Toast.LENGTH_SHORT).show();
