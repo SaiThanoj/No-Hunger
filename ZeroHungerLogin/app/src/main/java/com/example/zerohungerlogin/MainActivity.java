@@ -97,6 +97,49 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+  private static final int TEZ_REQUEST_CODE = 123;
+  private static final String GOOGLE_TEZ_PACKAGE_NAME = "com.google.android.apps.nbu.paisa.user";
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    Button payButton = findViewById(R.id.pay_button);
+    payButton.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Uri uri =
+            new Uri.Builder()
+                .scheme("upi")
+                .authority("pay")
+                .appendQueryParameter("pa", "test@axisbank")
+                .appendQueryParameter("pn", "Test Merchant")
+                .appendQueryParameter("mc", "1234")
+                .appendQueryParameter("tr", "123456789")
+                .appendQueryParameter("tn", "test transaction note")
+                .appendQueryParameter("am", "10.01")
+                .appendQueryParameter("cu", "INR")
+                .appendQueryParameter("url", "https://test.merchant.website")
+                .build();
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(uri);
+        intent.setPackage(GOOGLE_TEZ_PACKAGE_NAME);
+        startActivityForResult(intent, TEZ_REQUEST_CODE);
+      }
+    });
+  }
+
+  @Override
+  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+
+    if (requestCode == TEZ_REQUEST_CODE) {
+      // Process based on the data in response.
+      Log.d("result", data.getStringExtra("Status"));
+    }
+  }
+}
     private void signIn(){
         Intent signInIntent = mGoogleSignInclient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -153,29 +196,6 @@ public class MainActivity extends AppCompatActivity {
             paymentClient = Wallet.getPaymentsClient(
                 this. walletOptions);
         }
-        
-        
-
-        /*int GOOGLE_PAY_REQUEST_CODE = 123;
-
-        Uri uri =
-                new Uri.Builder()
-                        .scheme("upi")
-                        .authority("pay")
-                        .appendQueryParameter("pa", "your-merchant-vpa@xxx")
-                        .appendQueryParameter("pn", "your-merchant-name")
-                        .appendQueryParameter("mc", "your-merchant-code")
-                        .appendQueryParameter("tr", "your-transaction-ref-id")
-                        .appendQueryParameter("tn", "your-transaction-note")
-                        .appendQueryParameter("am", "your-order-amount")
-                        .appendQueryParameter("cu", "INR")
-                        .appendQueryParameter("url", "your-transaction-url")
-                        .build();
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(uri);
-        intent.setPackage(GOOGLE_PAY_PACKAGE_NAME);
-        activity.startActivityForResult(intent, GOOGLE_PAY_REQUEST_CODE);*/
-        
     }
     
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask){
