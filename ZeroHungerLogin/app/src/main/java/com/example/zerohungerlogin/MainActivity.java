@@ -111,7 +111,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-    
+    private static JSONObject baseConfigurationJson(){
+    return new JSONObject()
+        .put("apiVersion",2)
+        .put("apiVersionMinor",0)
+        .put("allowedPaymentMethods", new JSONArray().put(getCardPaymentMethod()));
+    }    
     public void donate(View view){
         
         EditText donatename = (EditText)findViewById(R.id.donatename);
@@ -155,14 +160,7 @@ public class MainActivity extends AppCompatActivity {
         activity.startActivityForResult(intent, GOOGLE_PAY_REQUEST_CODE);*/
         
     }
-    private static JSONObject baseConfigurationJson(){
-    return new JSONObject()
-        .put("apiVersion",2)
-        .put("apiVersionMinor",0)
-        .put("allowedPaymentMethods", new JSONArray().put(getCardPaymentMethod()));
-    }
     
-
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask){
         try {
             GoogleSignInAccount acc = completedTask.getResult(ApiException.class);
