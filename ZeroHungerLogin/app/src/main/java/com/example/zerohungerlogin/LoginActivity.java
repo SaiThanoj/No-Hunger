@@ -6,8 +6,10 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +25,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import static android.content.ContentValues.TAG;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -32,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
 
     FirebaseAuth auth;
     ProgressDialog pd;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users").child(auth.getCurrentUser().getUid());
+                                reference = FirebaseDatabase.getInstance().getReference().child("Users").child(auth.getCurrentUser().getUid());
 
                                 reference.addValueEventListener(new ValueEventListener() {
                                     @Override
@@ -83,13 +87,14 @@ public class LoginActivity extends AppCompatActivity {
 
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                                        pd.dismiss();
                                     }
                                 });
                             }
                             else{
                                 pd.dismiss();
                                 Toast.makeText(getApplicationContext(),"Authentication failed",Toast.LENGTH_SHORT).show();
+                                Log.d(TAG,"***this is ref"+ reference);
                             }
                         }
                     });

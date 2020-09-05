@@ -48,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         GoogleSignInAccount accCheck = GoogleSignIn.getLastSignedInAccount(this);
-        if(accCheck!=null){
-            startActivity(new Intent(MainActivity.this,StartActivity.class));
-            Toast.makeText(getApplicationContext(),"Signed in with previous account",Toast.LENGTH_SHORT).show();
-        }
+//        if(accCheck!=null){
+//            startActivity(new Intent(MainActivity.this,StartActivity.class));
+//            Toast.makeText(getApplicationContext(),"Signed in with previous account",Toast.LENGTH_SHORT).show();
+//        }
 
 
         firebaseuser = FirebaseAuth.getInstance().getCurrentUser();

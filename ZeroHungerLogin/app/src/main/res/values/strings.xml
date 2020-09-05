@@ -23,5 +23,13 @@
 
     <string name="drawer_open">drawer_open</string>
     <string name="drawer_close">drawer_close</string>
+    <string name="ADD">ADD</string>
+    <string name="address">Address</string>
+    <string name="kgs">KGs</string>
+    <string name="curry">Curry</string>
+    <string name="rice">Rice</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="pin">pin</string>
+    <string name="name">Name</string>
 
 </resources>
