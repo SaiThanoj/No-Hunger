@@ -9,22 +9,23 @@
         <item
             android:title="Food Donors"
             android:id="@+id/fooddonors"
-            android:icon="@drawable/ic_food"/>
+            android:icon="@drawable/ic_fooddonors"/>
 
         <item
             android:title="Money Donors"
             android:id="@+id/moneydonors"
-            android:icon="@drawable/ic_food"/>
+            android:icon="@drawable/ic_moneydonors"/>
 
         <item
             android:title="Money Spent"
             android:id="@+id/moneyspent"
-            android:icon="@drawable/ic_food"/>
+            android:icon="@drawable/ic_moneyspent"/>
 
         <item
             android:title="Settings"
             android:id="@+id/settings"
             android:icon="@drawable/ic_seticon"/>
     </group>
+
 
 </menu>

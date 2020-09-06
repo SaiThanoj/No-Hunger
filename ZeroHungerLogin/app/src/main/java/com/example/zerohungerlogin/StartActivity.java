@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
@@ -15,6 +16,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.Html;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -72,6 +74,7 @@ public class StartActivity extends OptionsMenuActivity implements NavigationView
     String name;
     StorageReference storageReference;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,7 +85,14 @@ public class StartActivity extends OptionsMenuActivity implements NavigationView
         username = hview.findViewById(R.id.navigationUsername);
         userphoto = hview.findViewById(R.id.navigationUserPhoto);
 
-
+        FloatingActionButton floatingActionButton = findViewById(R.id.fab);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),"you are going to donations page",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),MoneyDonationActivity.class));
+            }
+        });
 
         initView();
         setSupportActionBar(toolbar);
@@ -183,11 +193,18 @@ public class StartActivity extends OptionsMenuActivity implements NavigationView
                 break;
 
             case R.id.settings:
-                Toast.makeText(getApplicationContext(),"Item 5 selected",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
+                break;
         }
         return true;
     }
 
-
-
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawerLayout = findViewById(R.id.navigation_drawer);
+        if(drawerLayout.isDrawerOpen(GravityCompat.START))
+            drawerLayout.closeDrawer(GravityCompat.START);
+        else
+            super.onBackPressed();
+    }
 }

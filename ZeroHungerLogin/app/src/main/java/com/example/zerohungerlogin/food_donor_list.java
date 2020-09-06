@@ -7,6 +7,26 @@ public class food_donor_list {
     String ph;
     String rice;
     String curry;
+    String uid;
+    String url;
+
+    public String geturl() {
+        return url;
+    }
+
+    public void seturl(String url) {
+        this.url = url;
+    }
+
+
+
+    public String getuid() {
+        return uid;
+    }
+
+    public void setuid(String uid) {
+        this.uid = uid;
+    }
 
     public food_donor_list() {
     }
@@ -20,6 +40,7 @@ public class food_donor_list {
                 ", ph='" + ph + '\'' +
                 ", rice='" + rice + '\'' +
                 ", curry='" + curry + '\'' +
+                ", uid='" + uid + '\'' +
                 '}';
     }
 
@@ -70,4 +91,5 @@ public class food_donor_list {
     public void setCurry(String curry) {
         this.curry = curry;
     }
+
 }

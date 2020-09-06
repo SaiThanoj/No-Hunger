@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 public class food_donors extends AppCompatActivity {
     ArrayList<String> notes = new ArrayList<>();

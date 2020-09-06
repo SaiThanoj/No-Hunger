@@ -9,7 +9,6 @@
     tools:context=".StartActivity">
 
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -21,6 +20,17 @@
             android:id="@+id/toolbar"
             android:elevation="4dp"/>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="480dp"
+            android:layout_marginLeft="270dp"
+            android:background="#ffffff"
+            android:clickable="true"
+            app:srcCompat="@drawable/ic_moneydonors" />
+
+
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -31,6 +41,8 @@
         app:menu="@menu/menu_items"
         android:layout_gravity="start"
         />
+
+
 
 
 

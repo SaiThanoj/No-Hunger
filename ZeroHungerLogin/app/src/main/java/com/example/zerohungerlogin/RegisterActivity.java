@@ -100,7 +100,7 @@ public class RegisterActivity extends AppCompatActivity {
                     hashmap.put("id",userid);
                     hashmap.put("username", username);
                     hashmap.put("Bio", ""); //TODO
-                    hashmap.put("imageurl", "");    //TODO
+                    hashmap.put("imageurl", FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl());
 
                     reference.setValue(hashmap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

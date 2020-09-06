@@ -4,13 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -71,6 +74,15 @@ public class MainActivity extends AppCompatActivity {
         register = findViewById(R.id.button2);
         signInButton = findViewById(R.id.signInButton);
         fauth = FirebaseAuth.getInstance();
+
+        ConstraintLayout linearLayout = (ConstraintLayout) findViewById(R.id.mainlayout);
+
+        AnimationDrawable animationDrawable = (AnimationDrawable) linearLayout.getBackground();
+
+        animationDrawable.setEnterFadeDuration(1500);
+        animationDrawable.setExitFadeDuration(3000);
+
+        animationDrawable.start();
 
 
         login.setOnClickListener(new View.OnClickListener() {
