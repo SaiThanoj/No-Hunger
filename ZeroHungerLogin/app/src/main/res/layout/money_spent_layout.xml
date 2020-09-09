@@ -44,7 +44,7 @@
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/helpedimage"
+                android:background="@drawable/moneydonors"
                 android:id="@+id/helpedImage"/>
 
 
