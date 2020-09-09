@@ -19,6 +19,7 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.Random;
 
 import static android.content.ContentValues.TAG;
@@ -26,13 +27,15 @@ import static android.content.ContentValues.TAG;
 
 
 public class myFirebaseMessaging extends FirebaseMessagingService {
-    int Notificationcheck;
+
+    SettingsActivity obj = new SettingsActivity();
+    int Notificationcheck = obj.checked;
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
         if(Notificationcheck==1) {
             if (remoteMessage.getData().isEmpty()) {
-                shownotification1(remoteMessage.getNotification().getTitle().toString(), remoteMessage.getNotification().getBody().toString());
+                shownotification1(Objects.requireNonNull(remoteMessage.getNotification()).getTitle(), remoteMessage.getNotification().getBody());
             } else {
                 showNotification(remoteMessage.getData());
             }
@@ -40,8 +43,8 @@ public class myFirebaseMessaging extends FirebaseMessagingService {
     }
 
     private void showNotification(Map<String, String>data){
-        String title = data.get("title").toString();
-        String body = data.get("body").toString();
+        String title = data.get("title");
+        String body = data.get("body");
 
         NotificationManager notificationmanager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         String NotificationchannelID = "example.zerohungerlogin.test";

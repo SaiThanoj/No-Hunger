@@ -37,7 +37,7 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity {
 
     Button login,register;
-    SignInButton signInButton;
+    Button signInButton;
     GoogleSignInClient mGoogleSignInclient;
     FirebaseAuth fauth;
     private int RC_SIGN_IN = 1;
@@ -75,14 +75,14 @@ public class MainActivity extends AppCompatActivity {
         signInButton = findViewById(R.id.signInButton);
         fauth = FirebaseAuth.getInstance();
 
-        ConstraintLayout linearLayout = (ConstraintLayout) findViewById(R.id.mainlayout);
-
-        AnimationDrawable animationDrawable = (AnimationDrawable) linearLayout.getBackground();
-
-        animationDrawable.setEnterFadeDuration(1500);
-        animationDrawable.setExitFadeDuration(3000);
-
-        animationDrawable.start();
+//        ConstraintLayout linearLayout = (ConstraintLayout) findViewById(R.id.mainlayout);
+//
+//        AnimationDrawable animationDrawable = (AnimationDrawable) linearLayout.getBackground();
+//
+//        animationDrawable.setEnterFadeDuration(1500);
+//        animationDrawable.setExitFadeDuration(3000);
+//
+//        animationDrawable.start();
 
 
         login.setOnClickListener(new View.OnClickListener() {

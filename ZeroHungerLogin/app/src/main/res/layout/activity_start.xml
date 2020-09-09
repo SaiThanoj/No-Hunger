@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:openDrawer="start"
+    android:background="@drawable/homepageimage"
     android:id="@+id/drawer"
     tools:context=".StartActivity">
 
@@ -12,6 +13,15 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="600dp"
+            android:layout_marginLeft="140dp"
+            android:text="Donate here -->"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
@@ -24,11 +34,32 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="480dp"
+            android:layout_marginTop="590dp"
             android:layout_marginLeft="270dp"
+            android:tooltipText="Donate here"
             android:background="#ffffff"
             android:clickable="true"
             app:srcCompat="@drawable/ic_moneydonors" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="55dp"
+            android:text="OUR ACHIEVEMENTS WILL"
+            android:textColor="#ffffff"
+            android:textSize="26dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="230dp"
+            android:layout_marginLeft="120dp"
+            android:text="APPEAR HERE"
+            android:textColor="#ffffff"
+            android:textSize="26dp"
+            android:textStyle="bold" />
 
 
     </RelativeLayout>

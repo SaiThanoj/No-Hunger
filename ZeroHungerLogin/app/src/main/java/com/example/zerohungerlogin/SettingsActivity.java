@@ -5,17 +5,20 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,7 +53,7 @@ import java.util.UUID;
 public class SettingsActivity extends AppCompatActivity {
     TextView notifications,help,invitefriend,username;
     CardView cardView2,cardView3,cardView4;
-    Switch sw;
+    SwitchCompat sw;
     CircularImageView userphoto;
     FirebaseAuth fauth;
     FirebaseStorage firebaseStorage;
@@ -59,6 +62,7 @@ public class SettingsActivity extends AppCompatActivity {
     private Uri imageuri;
     String name;
     ArrayList<Object> UserInfo = new ArrayList<>();
+    int checked=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +76,16 @@ public class SettingsActivity extends AppCompatActivity {
         userphoto = findViewById(R.id.userPhoto);
         cardView4 = findViewById(R.id.cardview4);
         username= findViewById(R.id.usernameTextView);
+        sw = findViewById(R.id.notiSwitch);
+
+                LinearLayout linearLayout = (LinearLayout) findViewById(R.id.settingslayout);
+
+        AnimationDrawable animationDrawable = (AnimationDrawable) linearLayout.getBackground();
+
+        animationDrawable.setEnterFadeDuration(1500);
+        animationDrawable.setExitFadeDuration(3000);
+
+        animationDrawable.start();
 
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("users").child(uid);
@@ -116,6 +130,16 @@ public class SettingsActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    checked=1;
+                }
+                else
+                    checked=0;
+            }
+        });
 
         help.setOnClickListener(new View.OnClickListener() {
             @Override

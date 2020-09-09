@@ -2,29 +2,35 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/imageview01"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/maingrad1"
     tools:context=".StartActivity">
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="150dp"
         android:autofillHints=""
+        android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
         android:ems="10"
         android:hint="@string/name"
         android:inputType="textPersonName"
+        android:drawableStart="@drawable/ic_baseline_person_outline_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextPostalAddress"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:autofillHints=""
+        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+        android:drawableStart="@drawable/ic_baseline_pin_drop_24"
         android:ems="10"
         android:hint="@string/pin"
         android:inputType="textPostalAddress"
@@ -34,10 +40,12 @@
 
     <EditText
         android:id="@+id/editTextPhone"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:autofillHints=""
+        android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
+        android:drawableStart="@drawable/ic_baseline_phone_in_talk_24"
         android:ems="10"
         android:hint="@string/phone_number"
         android:inputType="phone"
@@ -50,23 +58,15 @@
         android:id="@+id/editTextNumber"
         android:layout_width="60dp"
         android:layout_height="0dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="20dp"
         android:autofillHints=""
+        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
         android:ems="10"
         android:hint="@string/rice"
         android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="60dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/kgs"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toEndOf="@+id/editTextNumber"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -77,37 +77,32 @@
         android:layout_marginEnd="200dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_begin="180dp"
+        app:layout_constraintGuide_begin="205dp"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editTextNumber3"
         android:layout_width="60dp"
         android:layout_height="0dp"
-        android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="70dp"
         android:autofillHints=""
+        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
         android:ems="10"
         android:hint="@string/curry"
         android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="60dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/kgs"
-        app:layout_constraintStart_toEndOf="@+id/editTextNumber3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:autofillHints=""
+        android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
+        android:drawableStart="@drawable/ic_baseline_home_24"
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/address"
@@ -120,11 +115,31 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:background="@color/colorPrimary"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_corners"
         android:text="@string/ADD"
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+
+    <ImageView
+        android:id="@+id/footer"
+        android:layout_width="410dp"
+        android:layout_height="176dp"
+        android:src="@drawable/footer1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="TODO" />
+
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="363dp"
+        android:layout_height="113dp"
+        android:src="@drawable/header_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

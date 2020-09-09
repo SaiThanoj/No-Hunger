@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/settingslayout"
+    android:background="@drawable/maingradient"
     tools:context=".SettingsActivity"
     android:gravity="fill"
     >
@@ -15,7 +17,7 @@
         android:layout_height="80dp"
         android:layout_margin="20dp"
         android:animateLayoutChanges="false"
-        android:elevation="12dp"
+        android:elevation="52dp"
         app:cardCornerRadius= "10dp">
 
 <!--        <com.mikhaellopez.circularimageview.CircularImageView-->
@@ -59,7 +61,7 @@
         android:layout_marginTop="0dp"
         android:layout_marginRight="20dp"
         android:animateLayoutChanges="false"
-        android:elevation="12dp"
+        android:elevation="52dp"
         app:cardCornerRadius= "10dp">
 
         <LinearLayout
@@ -105,7 +107,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:animateLayoutChanges="false"
-        android:elevation="12dp"
+        android:elevation="52dp"
         app:cardCornerRadius= "10dp">
 
         <LinearLayout
@@ -143,7 +145,7 @@
         android:layout_height="50sp"
         android:layout_margin="20dp"
         android:animateLayoutChanges="false"
-        android:elevation="12dp"
+        android:elevation="52dp"
         app:cardCornerRadius= "10dp">
 
         <LinearLayout

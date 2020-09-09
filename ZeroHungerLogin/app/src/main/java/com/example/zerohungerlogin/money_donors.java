@@ -1,17 +1,6 @@
 package com.example.zerohungerlogin;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.ArrayList;
-
-public class money_donors extends AppCompatActivity {
+/*public class money_donors extends AppCompatActivity {
 
     ArrayList<String> notes = new ArrayList<>();
 
@@ -49,5 +38,57 @@ public class money_donors extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+}  */
+
+public class money_donors {
+    String amount;
+    String name1;
+    String phone;
+    String uid1;
+
+    @Override
+    public String toString() {
+        return "money_donors{" +
+                "amount='" + amount + '\'' +
+                ", name1='" + name1 + '\'' +
+                ", phone='" + phone + '\'' +
+                ", uid1='" + uid1 + '\'' +
+                '}';
+    }
+
+    public money_donors() {
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+    public String getName1() {
+        return name1;
+    }
+
+    public void setName1(String name1) {
+        this.name1 = name1;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getUid1() {
+        return uid1;
+    }
+
+    public void setUid1(String uid1) {
+        this.uid1 = uid1;
     }
 }
